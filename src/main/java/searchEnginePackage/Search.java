@@ -32,10 +32,10 @@ public class Search extends HttpServlet {
                 results.add(searchResult);
             }
             request.setAttribute("results", results);
-            request.getRequestDispatcher("search.jsp").forward(request, response);
             response.setContentType("text/html");
             PrintWriter out = response.getWriter();
             request.setAttribute("out", out);
+            request.getRequestDispatcher("search.jsp").forward(request, response);
         } catch (SQLException | ServletException exception) {
             exception.printStackTrace();
         }
